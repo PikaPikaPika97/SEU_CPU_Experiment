@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_ALU_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_ALU" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="277608fs"></ZoomStartTime>
+      <ZoomEndTime time="319909fs"></ZoomEndTime>
+      <Cursor1Time time="358914fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="272"></NameColumnWidth>
+      <ValueColumnWidth column_width="130"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/tb_ALU/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ALU/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ALU/BR" type="array">
+      <obj_property name="ElementShortName">BR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">BR[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ALU/ACC_in" type="array">
+      <obj_property name="ElementShortName">ACC_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ACC_in[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ALU/ACC_out" type="array">
+      <obj_property name="ElementShortName">ACC_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ACC_out[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ALU/flags" type="array">
+      <obj_property name="ElementShortName">flags[5:0]</obj_property>
+      <obj_property name="ObjectShortName">flags[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ALU/MR" type="array">
+      <obj_property name="ElementShortName">MR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">MR[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ALU/DR" type="array">
+      <obj_property name="ElementShortName">DR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">DR[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ALU/C15C14C13C9" type="array">
+      <obj_property name="ElementShortName">C15C14C13C9[3:0]</obj_property>
+      <obj_property name="ObjectShortName">C15C14C13C9[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+</wave_config>

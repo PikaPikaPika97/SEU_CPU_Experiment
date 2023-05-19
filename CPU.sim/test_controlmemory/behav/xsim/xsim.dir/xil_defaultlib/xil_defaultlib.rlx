@@ -1,0 +1,7 @@
+0.7
+2020.1
+May 27 2020
+20:09:33
+C:/code_local/vivado/CPU/CPU.sim/test_controlmemory/behav/xsim/glbl.v,1590624368,verilog,,,,glbl,,,,,,,,
+C:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ControlMemory/sim/ControlMemory.v,1682596345,verilog,,C:/code_local/vivado/CPU/CPU.srcs/test_controlmemory/new/tb_ControlMemory.v,,ControlMemory,,,,,,,,
+C:/code_local/vivado/CPU/CPU.srcs/test_controlmemory/new/tb_ControlMemory.v,1683084775,verilog,,,,moduleName,,,,,,,,
