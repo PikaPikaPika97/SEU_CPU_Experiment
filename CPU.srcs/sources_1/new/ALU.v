@@ -53,8 +53,8 @@ module ALU (
   // reg  [15:0] ACC_in_reg;
   // reg  [15:0] BR_reg;
 
-  reg signed [15:0] mult1, mult2;
-  wire signed [31:0] mult_out;
+  reg  [15:0] mult1, mult2;
+  wire  [31:0] mult_out;
 
   mult_gen_0 mult (
       .A(mult1),    // input wire [15 : 0] A
@@ -144,7 +144,7 @@ module ALU (
           mult2             = BR;
           {MR_reg, ACC_reg} = mult_out;
           flags_reg[3]      = ~^ACC_reg;
-          flags_reg[2]      = ACC_reg[31];
+          flags_reg[2]      = ACC_reg[15];
           //flags[1]=0;
           flags_reg[0]      = (ACC_reg == 0) ? 1 : 0;
 

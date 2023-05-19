@@ -4,22 +4,22 @@ module tb_ALU;
 
   // ALU Parameters
   parameter PERIOD = 10;
-  parameter ADD = 4'b0001;
-  parameter SUB = 4'b0000;
-  parameter MPY = 4'b0010;
-  parameter DIV = 4'b0100;
-  parameter AND = 4'b0110;
-  parameter OR = 4'b1000;
-  parameter NOT = 4'b1010;
-  parameter SHIFTR = 4'b1100;
-  parameter SHIFTL = 4'b1110;
+  parameter ADD = 16'b0000_0010_0000_0001;
+  parameter SUB = 16'b0000_0000_0000_0001;
+  parameter MPY = 16'b0010_0000_0000_0001;
+  parameter DIV = 16'b0100_0000_0000_0001;
+  parameter AND = 16'b0110_0000_0000_0001;
+  parameter OR = 16'b1000_0000_0000_0001;
+  parameter NOT = 16'b1010_0000_0000_0001;
+  parameter SHIFTR = 16'b1100_0000_0000_0001;
+  parameter SHIFTL = 16'b1110_0000_0000_0001;
 
   // ALU Inputs
   reg         rst = 0;
   reg         clk = 0;
   reg  [15:0] BR = 0;
   reg  [15:0] ACC_in = 0;
-  reg  [ 3:0] C15C14C13C9 = 0;
+  reg [15:0] C = 0;
 
   // ALU Outputs
   wire [ 5:0] flags;
@@ -32,28 +32,22 @@ module tb_ALU;
     forever #(PERIOD / 2) clk = ~clk;
   end
 
-  ALU #(
-      .ADD   (ADD),
-      .SUB   (SUB),
-      .MPY   (MPY),
-      .DIV   (DIV),
-      .AND   (AND),
-      .OR    (OR),
-      .NOT   (NOT),
-      .SHIFTR(SHIFTR),
-      .SHIFTL(SHIFTL)
-  ) u_ALU (
-      .rst        (rst),
-      .clk        (clk),
-      .BR         (BR[15:0]),
-      .ACC_in     (ACC_in[15:0]),
-      .C15C14C13C9(C15C14C13C9[3:0]),
+  ALU u_ALU (
+      .rst   (rst),
+      .clk   (clk),
+      .BR    (BR[15:0]),
+      .ACC_in(ACC_in[15:0]),
+      .C     (C),
 
       .flags  (flags[5:0]),
       .ACC_out(ACC_out[15:0]),
       .MR     (MR[15:0]),
       .DR     (DR[15:0])
   );
+
+ 
+
+
 
   initial begin
     #(PERIOD * 2) rst = 1;
@@ -62,139 +56,139 @@ module tb_ALU;
 
     //add
     #PERIOD;
-    C15C14C13C9 = ADD;
+    C = ADD;
     ACC_in      = -66;
     BR          = 33;
 
     #PERIOD;
-    C15C14C13C9 = ADD;
+    C = ADD;
     ACC_in      = -128;
     BR          = 654;
 
     #PERIOD;
-    C15C14C13C9 = ADD;
+    C = ADD;
     ACC_in      = -100;
     BR          = -800;
 
     #PERIOD;
-    C15C14C13C9 = ADD;
+    C = ADD;
     ACC_in      = 14580;
     BR          = 32000;
 
     #PERIOD;
-    C15C14C13C9 = ADD;
+    C = ADD;
     ACC_in      = 14580;
     BR          = 16395;
 
     #PERIOD;
-    C15C14C13C9 = ADD;
+    C = ADD;
     ACC_in      = -14580;
     BR          = -32500;
 
     #PERIOD;
-    C15C14C13C9 = ADD;
+    C = ADD;
     ACC_in      = -14580;
     BR          = -16395;
 
     //SUB
     #PERIOD;
-    C15C14C13C9 = SUB;
+    C = SUB;
     ACC_in      = -66;
     BR          = 33;
 
     #PERIOD;
-    C15C14C13C9 = SUB;
+    C = SUB;
     ACC_in      = -128;
     BR          = 654;
 
     #PERIOD;
-    C15C14C13C9 = SUB;
+    C = SUB;
     ACC_in      = -100;
     BR          = -800;
 
     #PERIOD;
-    C15C14C13C9 = SUB;
+    C = SUB;
     ACC_in      = 14580;
     BR          = 32000;
 
     #PERIOD;
-    C15C14C13C9 = SUB;
+    C = SUB;
     ACC_in      = 14580;
     BR          = 16395;
 
     #PERIOD;
-    C15C14C13C9 = SUB;
+    C = SUB;
     ACC_in      = -14580;
     BR          = -32500;
 
     #PERIOD;
-    C15C14C13C9 = SUB;
+    C = SUB;
     ACC_in      = -14580;
     BR          = -16395;
 
     //MPY
     #PERIOD;
-    C15C14C13C9 = MPY;
+    C = MPY;
     ACC_in      = -5;
     BR          = 5;
 
     #PERIOD;
-    C15C14C13C9 = MPY;
+    C = MPY;
     ACC_in      = 24;
     BR          = -2;
 
     #PERIOD;
-    C15C14C13C9 = MPY;
+    C = MPY;
     ACC_in      = -6;
     BR          = -5;
 
     #PERIOD;
-    C15C14C13C9 = MPY;
+    C = MPY;
     ACC_in      = 4;
     BR          = 3;
 
     #PERIOD;
-    C15C14C13C9 = MPY;
+    C = MPY;
     ACC_in      = 14580;
     BR          = 16395;
 
     #PERIOD;
-    C15C14C13C9 = MPY;
+    C = MPY;
     ACC_in      = -14580;
     BR          = -32500;
 
     #PERIOD;
-    C15C14C13C9 = MPY;
+    C = MPY;
     ACC_in      = -14580;
     BR          = -16395;
 
     //AND
     #PERIOD;
-    C15C14C13C9 = AND;
+    C = AND;
     ACC_in      = 16'HFF00;
     BR          = 16'HCCCC;
 
     //OR
     #PERIOD;
-    C15C14C13C9 = OR;
+    C = OR;
     ACC_in      = 16'HFF00;
     BR          = 16'HCCCC;
 
     //NOT
     #PERIOD;
-    C15C14C13C9 = NOT;
+    C = NOT;
     ACC_in      = 16'HFF00;
     BR          = 16'HCCCC;
 
     //SR
     #PERIOD;
-    C15C14C13C9 = SHIFTR;
+    C = SHIFTR;
     ACC_in      = 16'HFF00;
     BR          = 16'HCCCC;
 
     //SL
     #PERIOD;
-    C15C14C13C9 = SHIFTL;
+    C = SHIFTL;
     ACC_in      = 16'HFF00;
     BR          = 16'HCCCC;
 
