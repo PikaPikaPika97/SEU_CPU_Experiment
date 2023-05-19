@@ -27,14 +27,18 @@ module ALU (
 
     input [15:0] BR,
     input [15:0] ACC_in,
-    input [ 3:0] C15C14C13C9,
+    input [15:0] C,
 
-    output reg [ 5:0] flags,    // 5CF无符号数进位,4OF有符号数溢出,3PF奇偶标志位(1个数为偶数时为1),2SF符号标志位,1AF调整标志位；反映加减运算时最低半字节有无进位或者借位,0ZF零标志位
-    output reg [15:0] ACC_out,
-    output reg [15:0] MR,
-    output reg [15:0] DR
+    output  [ 5:0] flags,    // 5CF无符号数进位,4OF有符号数溢出,3PF奇偶标志位(1个数为偶数时为1),2SF符号标志位,1AF调整标志位；反映加减运算时最低半字节有无进位或者借位,0ZF零标志位
+    output [15:0] ACC_out,
+    output [15:0] MR,
+    output [15:0] DR
 
 );
+  reg [ 5:0] flags_reg;
+  reg [15:0] ACC_reg;
+  reg [15:0] MR_reg;
+  reg [15:0] DR_reg;
 
   parameter ADD = 4'b0001;
   parameter SUB = 4'b0000;
@@ -60,97 +64,111 @@ module ALU (
 
   always @(*) begin
     if (!rst) begin
-      ACC_out = 0;
-      MR      = 0;
-      DR      = 0;
-      mult1   = 0;
-      mult2   = 0;
+      flags_reg = 0;
+      ACC_reg   = 0;
+      MR_reg    = 0;
+      DR_reg    = 0;
+      mult1     = 0;
+      mult2     = 0;
       // ACC_in_reg = 0;
       // BR_reg     = 0;
+    end else if (C[8] == 1) begin
+      ACC_reg = 0;
     end else begin
-      case (C15C14C13C9)
+      case ({
+        C[15], C[14], C[13], C[9]
+      })
         ADD: begin
-          flags               = 0;
-          {flags[5], ACC_out} = ACC_in + BR;
-          flags[4]            = (ACC_in[15] == BR[15]) && (ACC_in[15] != ACC_out[15]) ? 1 : 0;
-          flags[3]            = ~^ACC_out;
-          flags[2]            = ACC_out[15];
+          flags_reg               = 0;
+          {flags_reg[5], ACC_reg} = ACC_in + BR;
+          flags_reg[4]            = (ACC_in[15] == BR[15]) && (ACC_in[15] != ACC_reg[15]) ? 1 : 0;
+          flags_reg[3]            = ~^ACC_reg;
+          flags_reg[2]            = ACC_reg[15];
           //flags[1]=0;
-          flags[0]            = (ACC_out == 0) ? 1 : 0;
+          flags_reg[0]            = (ACC_reg == 0) ? 1 : 0;
         end
         SUB: begin
-          flags = 0;
-          {flags[5], ACC_out} = ACC_in - BR;
-          flags[4]            = (ACC_in[15] == 0 && BR[15] == 1 && ACC_out[15] == 1) || (ACC_in[15] == 1 && BR[15] == 0 && ACC_out[15] == 0) ? 1 : 0;
-          flags[3] = ~^ACC_out;
-          flags[2] = ACC_out[15];
+          flags_reg = 0;
+          {flags_reg[5], ACC_reg} = ACC_in - BR;
+          flags_reg[4]            = (ACC_in[15] == 0 && BR[15] == 1 && ACC_reg[15] == 1) || (ACC_in[15] == 1 && BR[15] == 0 && ACC_reg[15] == 0) ? 1 : 0;
+          flags_reg[3] = ~^ACC_reg;
+          flags_reg[2] = ACC_reg[15];
           //flags[1]=0;
-          flags[0] = (ACC_out == 0) ? 1 : 0;
+          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
         end
         AND: begin
-          flags    = 0;
-          ACC_out  = ACC_in & BR;
-          flags[3] = ~^ACC_out;
-          flags[2] = ACC_out[15];
-          //flags[1]=0;
-          flags[0] = (ACC_out == 0) ? 1 : 0;
+          flags_reg    = 0;
+          ACC_reg  = ACC_in & BR;
+          flags_reg[3] = ~^ACC_reg;
+          flags_reg[2] = ACC_reg[15];
+          //flags_reg[1]=0;
+          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
         end
         OR: begin
-          flags    = 0;
-          ACC_out  = ACC_in | BR;
-          flags[3] = ~^ACC_out;
-          flags[2] = ACC_out[15];
-          //flags[1]=0;
-          flags[0] = (ACC_out == 0) ? 1 : 0;
+          flags_reg    = 0;
+          ACC_reg  = ACC_in | BR;
+          flags_reg[3] = ~^ACC_reg;
+          flags_reg[2] = ACC_reg[15];
+          //flags_reg[1]=0;
+          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
         end
         NOT: begin
-          flags    = 0;
-          ACC_out  = ~ACC_in;
-          flags[3] = ~^ACC_out;
-          flags[2] = ACC_out[15];
-          //flags[1]=0;
-          flags[0] = (ACC_out == 0) ? 1 : 0;
+          flags_reg    = 0;
+          ACC_reg  = ~ACC_in;
+          flags_reg[3] = ~^ACC_reg;
+          flags_reg[2] = ACC_reg[15];
+          //flags_reg[1]=0;
+          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
         end
         SHIFTL: begin
-          flags               = 0;
-          {flags[5], ACC_out} = ACC_in << 1;
-          flags[3]            = ~^ACC_out;
-          flags[2]            = ACC_out[15];
-          //flags[1]=0;
-          flags[0]            = (ACC_out == 0) ? 1 : 0;
+          flags_reg               = 0;
+          {flags_reg[5], ACC_reg} = ACC_in << 1;
+          flags_reg[3]            = ~^ACC_reg;
+          flags_reg[2]            = ACC_reg[15];
+          //flags_reg[1]=0;
+          flags_reg[0]            = (ACC_reg == 0) ? 1 : 0;
 
         end
         SHIFTR: begin
-          flags    = 0;
-          ACC_out  = ACC_in >> 1;
-          flags[3] = ~^ACC_out;
-          flags[2] = ACC_out[15];
-          //flags[1]=0;
-          flags[0] = (ACC_out == 0) ? 1 : 0;
+          flags_reg    = 0;
+          ACC_reg  = ACC_in >> 1;
+          flags_reg[3] = ~^ACC_reg;
+          flags_reg[2] = ACC_reg[15];
+          //flags_reg[1]=0;
+          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
         end
 
         MPY: begin
-          flags         = 0;
-          mult1         = ACC_in;
-          mult2         = BR;
-          {MR, ACC_out} = mult_out;
-          flags[3]      = ~^mult_out;
-          flags[2]      = mult_out[31];
+          flags_reg         = 0;
+          mult1             = ACC_in;
+          mult2             = BR;
+          {MR_reg, ACC_reg} = mult_out;
+          flags_reg[3]      = ~^ACC_reg;
+          flags_reg[2]      = ACC_reg[31];
           //flags[1]=0;
-          flags[0]      = (ACC_out == 0) ? 1 : 0;
+          flags_reg[0]      = (ACC_reg == 0) ? 1 : 0;
 
         end
         default: begin
-          ACC_out = 0;
-          MR      = 0;
-          DR      = 0;
-          mult1   = 0;
-          mult2   = 0;
+          flags_reg = 0;
+          ACC_reg   = 0;
+          MR_reg    = 0;
+          DR_reg    = 0;
+          mult1     = 0;
+          mult2     = 0;
         end
 
 
       endcase
     end
   end
+  assign flags = flags_reg;
+  assign ACC_out = ACC_reg;
+  assign MR = MR_reg;
+  assign DR = DR_reg;
+
+
+
+
 
 endmodule
