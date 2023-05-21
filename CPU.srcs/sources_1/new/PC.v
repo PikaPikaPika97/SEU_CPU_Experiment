@@ -27,16 +27,35 @@ module PC (
     input [15:0] C,
     output [7 : 0] PC_out  //to MAR
 );
-  reg [7:0] PC_reg;
-  always @(posedge clk or negedge rst) begin
+  reg [7:0] PC_reg, PC_temp;
+  // always @(posedge clk or negedge rst) begin
+  //   if (!rst) begin
+  //     PC_reg  <= 0;
+  //     PC_temp <= 0;
+  //   end else begin
+  //     PC_temp <= PC_reg;
+  //     if (C[6] == 1) begin
+  //       PC_reg <= PC_temp + 1;
+  //     end else if (C[12:11] == 2'b11) begin
+  //       PC_reg <= MBR_in;
+  //     end else begin
+  //       PC_reg <= PC_temp;
+  //     end
+  //   end
+  // end
+  always @(*) begin
     if (!rst) begin
-      PC_reg <= 0;
-    end else if (C[6] == 1) begin
-      PC_reg <= PC_reg + 1;
-    end else if (C[12:11] == 2'b11) begin
-      PC_reg <= MBR_in;
+      PC_reg  = 0;
+      PC_temp = 0;
     end else begin
-      PC_reg <= 0;
+      PC_temp = PC_reg;
+      if (C[6] == 1) begin
+        PC_reg = PC_temp + 1;
+      end else if (C[12:11] == 2'b11) begin
+        PC_reg = MBR_in;
+      end else begin
+        PC_reg = PC_temp;
+      end
     end
   end
   assign PC_out = PC_reg;

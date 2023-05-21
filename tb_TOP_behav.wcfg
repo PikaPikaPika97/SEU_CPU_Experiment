@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_TOP_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_TOP" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="80001fs"></ZoomEndTime>
+      <Cursor1Time time="65000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="272"></NameColumnWidth>
+      <ValueColumnWidth column_width="124"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/tb_TOP/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP/ACC_out" type="array">
+      <obj_property name="ElementShortName">ACC_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ACC_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP/MR_out" type="array">
+      <obj_property name="ElementShortName">MR_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">MR_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP/DR_out" type="array">
+      <obj_property name="ElementShortName">DR_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">DR_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group21" type="group">
+      <obj_property name="label">Memory</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_TOP/u_TOP/inst_main_memory/wea" type="array">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/inst_main_memory/addra" type="array">
+         <obj_property name="ElementShortName">addra[7:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/inst_main_memory/douta" type="array">
+         <obj_property name="ElementShortName">douta[15:0]</obj_property>
+         <obj_property name="ObjectShortName">douta[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group25" type="group">
+      <obj_property name="label">MAR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_MAR/MAR_out" type="array">
+         <obj_property name="ElementShortName">MAR_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">MAR_out[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_MAR/MBR_in" type="array">
+         <obj_property name="ElementShortName">MBR_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">MBR_in[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_MAR/MAR_reg" type="array">
+         <obj_property name="ElementShortName">MAR_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">MAR_reg[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group22" type="group">
+      <obj_property name="label">MBR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_MBR/RAM_in" type="array">
+         <obj_property name="ElementShortName">RAM_in[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_in[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_MBR/MBR_reg" type="array">
+         <obj_property name="ElementShortName">MBR_reg[15:0]</obj_property>
+         <obj_property name="ObjectShortName">MBR_reg[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_MBR/MBR_out" type="array">
+         <obj_property name="ElementShortName">MBR_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">MBR_out[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group20" type="group">
+      <obj_property name="label">IR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_IR/MBR_in" type="array">
+         <obj_property name="ElementShortName">MBR_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">MBR_in[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_IR/IR_reg" type="array">
+         <obj_property name="ElementShortName">IR_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">IR_reg[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_IR/IR_out" type="array">
+         <obj_property name="ElementShortName">IR_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">IR_out[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group27" type="group">
+      <obj_property name="label">CU</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_CU/CAR" type="array">
+         <obj_property name="ElementShortName">CAR[6:0]</obj_property>
+         <obj_property name="ObjectShortName">CAR[6:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_CU/opcode" type="array">
+         <obj_property name="ElementShortName">opcode[7:0]</obj_property>
+         <obj_property name="ObjectShortName">opcode[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/C" type="array">
+         <obj_property name="ElementShortName">C[15:0]</obj_property>
+         <obj_property name="ObjectShortName">C[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group55" type="group">
+      <obj_property name="label">PC</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_PC/PC_out" type="array">
+         <obj_property name="ElementShortName">PC_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">PC_out[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_PC/PC_reg" type="array">
+         <obj_property name="ElementShortName">PC_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">PC_reg[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

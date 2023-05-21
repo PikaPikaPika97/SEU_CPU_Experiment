@@ -26,7 +26,7 @@ module ALU (
 
 
     input [15:0] BR,
-    input [15:0] ACC_in,
+    //  input [15:0] ACC_in_test,
     input [15:0] C,
 
     output  [ 5:0] flags,    // 5CF无符号数进位,4OF有符号数溢出,3PF奇偶标志位(1个数为偶数时为1),2SF符号标志位,1AF调整标志位；反映加减运算时最低半字节有无进位或者借位,0ZF零标志位
@@ -35,6 +35,7 @@ module ALU (
     output [15:0] DR
 
 );
+  reg [15:0] ACC_in;
   reg [ 5:0] flags_reg;
   reg [15:0] ACC_reg;
   reg [15:0] MR_reg;
@@ -53,14 +54,17 @@ module ALU (
   // reg  [15:0] ACC_in_reg;
   // reg  [15:0] BR_reg;
 
-  reg  [15:0] mult1, mult2;
-  wire  [31:0] mult_out;
+  reg [15:0] mult1, mult2;
+  wire [31:0] mult_out;
 
   mult_gen_0 mult (
       .A(mult1),    // input wire [15 : 0] A
       .B(mult2),    // input wire [15 : 0] B
       .P(mult_out)  // output wire [31 : 0] P
   );
+  // always @(*) begin
+  //   ACC_in=ACC_in_test;
+  // end
 
   always @(*) begin
     if (!rst) begin
@@ -73,8 +77,10 @@ module ALU (
       // ACC_in_reg = 0;
       // BR_reg     = 0;
     end else if (C[8] == 1) begin
+      ACC_in  = 0;
       ACC_reg = 0;
     end else begin
+      ACC_in = ACC_reg;
       case ({
         C[15], C[14], C[13], C[9]
       })

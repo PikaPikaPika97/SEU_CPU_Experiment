@@ -46,4 +46,6 @@ module MBR (
       MBR_reg <= MBR_reg;
     end
   end
+  assign MBR_out = MBR_reg;
+
 endmodule

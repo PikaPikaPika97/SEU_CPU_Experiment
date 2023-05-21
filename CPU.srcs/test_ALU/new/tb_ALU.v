@@ -36,7 +36,7 @@ module tb_ALU;
       .rst   (rst),
       .clk   (clk),
       .BR    (BR[15:0]),
-      .ACC_in(ACC_in[15:0]),
+//      .ACC_in(ACC_in[15:0]),
       .C     (C),
 
       .flags  (flags[5:0]),

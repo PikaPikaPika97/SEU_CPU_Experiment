@@ -1,0 +1,39 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 2023/05/21 16:40:51
+// Design Name: 
+// Module Name: BR
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module BR (
+    input clk,
+    input rst,
+    input [15:0] C,
+    input [15:0] MBR_in,
+    output [15:0] BR_out
+);
+
+  reg [15:0] BR_reg;
+  assign BR_out = BR_reg;
+  always @(posedge clk or negedge rst) begin
+    if (!rst) begin
+      BR_reg <= 0;
+    end else if (C[7] == 1) BR_reg <= MBR_in;
+    else BR_reg <= 0;
+  end
+endmodule
+

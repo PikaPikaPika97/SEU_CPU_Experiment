@@ -2,9 +2,8 @@
 2020.1
 May 27 2020
 20:09:33
-C:/code_local/vivado/CPU/CPU.sim/test_ALU/behav/xsim/glbl.v,1590624368,verilog,,,,glbl,,,,,,,,
 C:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ControlMemory/sim/ControlMemory.v,1683788933,verilog,,C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/CU.v,,ControlMemory,,,,,,,,
-,,,,,,mult_gen_0;mult_gen_0_dsp;mult_gen_0_mult_gen_v12_0_16;mult_gen_0_mult_gen_v12_0_16_viv,,,,,,,,
-C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/ALU.v,1684467245,verilog,,C:/code_local/vivado/CPU/CPU.srcs/test_ALU/new/tb_ALU.v,,ALU,,,,,,,,
+C:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/mult_gen_0/mult_gen_0_sim_netlist.v,1684467500,verilog,,C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/ALU.v,,glbl;mult_gen_0;mult_gen_0_dsp;mult_gen_0_mult_gen_v12_0_16;mult_gen_0_mult_gen_v12_0_16_viv,,,,,,,,
+C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/ALU.v,1684663062,verilog,,C:/code_local/vivado/CPU/CPU.srcs/test_ALU/new/tb_ALU.v,,ALU,,,,,,,,
 C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/CU.v,1683947618,verilog,,,,CU,,,,,,,,
 C:/code_local/vivado/CPU/CPU.srcs/test_ALU/new/tb_ALU.v,1684466427,verilog,,,,tb_ALU,,,,,,,,
