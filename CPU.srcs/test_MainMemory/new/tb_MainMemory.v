@@ -54,22 +54,36 @@ module tb_MainMemory ();
     //write
     dina  = 1;
     wea   = 1;
-    addra = 100;
+    addra = 8'HA4;
+    dina  = 1;
     #PERIOD;
-    repeat (5) begin
-      addra = addra + 1;
-      dina  = dina + 1;
-      #PERIOD;
-    end
+    // #PERIOD;
+    // repeat (5) begin
+    //   addra = addra + 1;
+    //   dina  = dina + 1;
+    //   #PERIOD;
+    // end
 
     //read
     wea   = 0;
-    addra = 100;
+    addra = 8'H00;
     #PERIOD;
-    repeat (5) begin
+    repeat (255) begin
       addra = addra + 1;
       #PERIOD;
     end
+    // #PERIOD;
+    // addra = 8'HA0;
+    // #PERIOD;
+    // addra = 8'HA1;
+    // #PERIOD;
+    // addra = 8'HA2;
+    // #PERIOD;
+    // addra = 8'HA3;
+    // #PERIOD;
+    // addra = 8'HA4;
+    // #PERIOD;
+    
 
     #(2 * PERIOD) $finish;
 

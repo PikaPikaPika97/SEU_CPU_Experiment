@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="MainMemory_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1684676073">
+<GenRun Id="MainMemory_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1684724388">
   <File Type="PA-TCL" Name="MainMemory.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="MainMemory_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="MainMemory_reports.tcl"/>
   <File Type="RDS-RDS" Name="MainMemory.vds"/>
   <File Type="RDS-UTIL" Name="MainMemory_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="MainMemory_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="MainMemory.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="MainMemory_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="MainMemory_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/MainMemory">
     <File Path="$PSRCDIR/sources_1/ip/MainMemory/MainMemory.xci">
       <FileInfo>

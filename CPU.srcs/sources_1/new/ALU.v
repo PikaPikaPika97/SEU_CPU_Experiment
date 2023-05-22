@@ -41,6 +41,10 @@ module ALU (
   reg [15:0] MR_reg;
   reg [15:0] DR_reg;
 
+  reg [ 5:0] flags_temp;
+  reg [15:0] MR_temp;
+  reg [15:0] DR_temp;
+
   parameter ADD = 4'b0001;
   parameter SUB = 4'b0000;
   parameter MPY = 4'b0010;
@@ -68,104 +72,114 @@ module ALU (
 
   always @(*) begin
     if (!rst) begin
-      flags_reg = 0;
-      ACC_reg   = 0;
-      MR_reg    = 0;
-      DR_reg    = 0;
-      mult1     = 0;
-      mult2     = 0;
+      flags_reg  = 0;
+      ACC_reg    = 0;
+      ACC_in     = 0;
+      MR_reg     = 0;
+      DR_reg     = 0;
+      mult1      = 0;
+      mult2      = 0;
+      flags_temp = 0;
+      MR_temp    = 0;
+      DR_temp    = 0;
+
       // ACC_in_reg = 0;
       // BR_reg     = 0;
-    end else if (C[8] == 1) begin
-      ACC_in  = 0;
-      ACC_reg = 0;
     end else begin
-      ACC_in = ACC_reg;
-      case ({
-        C[15], C[14], C[13], C[9]
-      })
-        ADD: begin
-          flags_reg               = 0;
-          {flags_reg[5], ACC_reg} = ACC_in + BR;
-          flags_reg[4]            = (ACC_in[15] == BR[15]) && (ACC_in[15] != ACC_reg[15]) ? 1 : 0;
-          flags_reg[3]            = ~^ACC_reg;
-          flags_reg[2]            = ACC_reg[15];
-          //flags[1]=0;
-          flags_reg[0]            = (ACC_reg == 0) ? 1 : 0;
-        end
-        SUB: begin
-          flags_reg = 0;
-          {flags_reg[5], ACC_reg} = ACC_in - BR;
-          flags_reg[4]            = (ACC_in[15] == 0 && BR[15] == 1 && ACC_reg[15] == 1) || (ACC_in[15] == 1 && BR[15] == 0 && ACC_reg[15] == 0) ? 1 : 0;
-          flags_reg[3] = ~^ACC_reg;
-          flags_reg[2] = ACC_reg[15];
-          //flags[1]=0;
-          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
-        end
-        AND: begin
-          flags_reg    = 0;
-          ACC_reg  = ACC_in & BR;
-          flags_reg[3] = ~^ACC_reg;
-          flags_reg[2] = ACC_reg[15];
-          //flags_reg[1]=0;
-          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
-        end
-        OR: begin
-          flags_reg    = 0;
-          ACC_reg  = ACC_in | BR;
-          flags_reg[3] = ~^ACC_reg;
-          flags_reg[2] = ACC_reg[15];
-          //flags_reg[1]=0;
-          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
-        end
-        NOT: begin
-          flags_reg    = 0;
-          ACC_reg  = ~ACC_in;
-          flags_reg[3] = ~^ACC_reg;
-          flags_reg[2] = ACC_reg[15];
-          //flags_reg[1]=0;
-          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
-        end
-        SHIFTL: begin
-          flags_reg               = 0;
-          {flags_reg[5], ACC_reg} = ACC_in << 1;
-          flags_reg[3]            = ~^ACC_reg;
-          flags_reg[2]            = ACC_reg[15];
-          //flags_reg[1]=0;
-          flags_reg[0]            = (ACC_reg == 0) ? 1 : 0;
+      if (C[8] == 1) begin
+        ACC_in  = 0;
+        ACC_reg = 0;
+      end else begin
+        ACC_in = ACC_reg;
+        flags_temp = flags_reg;
+        MR_temp = MR_reg;
+        DR_temp = DR_reg;
+        case ({
+          C[15], C[14], C[13], C[9]
+        })
+          ADD: begin
+            flags_reg               = 0;
+            {flags_reg[5], ACC_reg} = ACC_in + BR;
+            flags_reg[4]            = (ACC_in[15] == BR[15]) && (ACC_in[15] != ACC_reg[15]) ? 1 : 0;
+            flags_reg[3]            = ~^ACC_reg;
+            flags_reg[2]            = ACC_reg[15];
+            //flags[1]=0;
+            flags_reg[0]            = (ACC_reg == 0) ? 1 : 0;
+          end
+          SUB: begin
+            flags_reg = 0;
+            {flags_reg[5], ACC_reg} = ACC_in - BR;
+            flags_reg[4]            = (ACC_in[15] == 0 && BR[15] == 1 && ACC_reg[15] == 1) || (ACC_in[15] == 1 && BR[15] == 0 && ACC_reg[15] == 0) ? 1 : 0;
+            flags_reg[3] = ~^ACC_reg;
+            flags_reg[2] = ACC_reg[15];
+            //flags[1]=0;
+            flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
+          end
+          AND: begin
+            flags_reg    = 0;
+            ACC_reg  = ACC_in & BR;
+            flags_reg[3] = ~^ACC_reg;
+            flags_reg[2] = ACC_reg[15];
+            //flags_reg[1]=0;
+            flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
+          end
+          OR: begin
+            flags_reg    = 0;
+            ACC_reg  = ACC_in | BR;
+            flags_reg[3] = ~^ACC_reg;
+            flags_reg[2] = ACC_reg[15];
+            //flags_reg[1]=0;
+            flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
+          end
+          NOT: begin
+            flags_reg    = 0;
+            ACC_reg  = ~ACC_in;
+            flags_reg[3] = ~^ACC_reg;
+            flags_reg[2] = ACC_reg[15];
+            //flags_reg[1]=0;
+            flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
+          end
+          SHIFTL: begin
+            flags_reg               = 0;
+            {flags_reg[5], ACC_reg} = ACC_in << 1;
+            flags_reg[3]            = ~^ACC_reg;
+            flags_reg[2]            = ACC_reg[15];
+            //flags_reg[1]=0;
+            flags_reg[0]            = (ACC_reg == 0) ? 1 : 0;
 
-        end
-        SHIFTR: begin
-          flags_reg    = 0;
-          ACC_reg  = ACC_in >> 1;
-          flags_reg[3] = ~^ACC_reg;
-          flags_reg[2] = ACC_reg[15];
-          //flags_reg[1]=0;
-          flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
-        end
+          end
+          SHIFTR: begin
+            flags_reg    = 0;
+            ACC_reg  = ACC_in >> 1;
+            flags_reg[3] = ~^ACC_reg;
+            flags_reg[2] = ACC_reg[15];
+            //flags_reg[1]=0;
+            flags_reg[0] = (ACC_reg == 0) ? 1 : 0;
+          end
 
-        MPY: begin
-          flags_reg         = 0;
-          mult1             = ACC_in;
-          mult2             = BR;
-          {MR_reg, ACC_reg} = mult_out;
-          flags_reg[3]      = ~^ACC_reg;
-          flags_reg[2]      = ACC_reg[15];
-          //flags[1]=0;
-          flags_reg[0]      = (ACC_reg == 0) ? 1 : 0;
+          MPY: begin
+            flags_reg         = 0;
+            mult1             = ACC_in;
+            mult2             = BR;
+            {MR_reg, ACC_reg} = mult_out;
+            flags_reg[3]      = ~^ACC_reg;
+            flags_reg[2]      = ACC_reg[15];
+            //flags[1]=0;
+            flags_reg[0]      = (ACC_reg == 0) ? 1 : 0;
 
-        end
-        default: begin
-          flags_reg = 0;
-          ACC_reg   = 0;
-          MR_reg    = 0;
-          DR_reg    = 0;
-          mult1     = 0;
-          mult2     = 0;
-        end
+          end
+          default: begin
+            flags_reg = flags_temp;
+            ACC_reg   = ACC_in;
+            MR_reg    = MR_temp;
+            DR_reg    = DR_temp;
+            mult1     = 0;
+            mult2     = 0;
+          end
 
 
-      endcase
+        endcase
+      end
     end
   end
   assign flags = flags_reg;

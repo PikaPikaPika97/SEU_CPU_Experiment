@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Sun May 21 21:36:17 2023
+// Date        : Mon May 22 11:05:18 2023
 // Host        : LAPTOP-I9VVBRCK running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ControlMemory/ControlMemory_sim_netlist.v

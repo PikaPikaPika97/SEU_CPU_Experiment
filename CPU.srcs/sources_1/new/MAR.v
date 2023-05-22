@@ -30,16 +30,37 @@ module MAR (
     output [7:0] MAR_out  //to Memory
 );
   reg [7:0] MAR_reg;
+  reg [7:0] MAR_temp;
   always @(posedge clk or negedge rst) begin
     if (!rst) begin
-      MAR_reg <= 0;
+      MAR_reg  <= 0;
+      MAR_temp <= 0;
+    end
+    // else begin
+    //   if (C[5] == 1) begin
+    //     MAR_reg <= MBR_in;
+    //   end else if (C[10==1]) begin
+    //     MAR_reg <= PC_in;
+    //   end else begin
+    //     MAR_reg <= MAR_temp;
+    //   end
+    // end
+  end
+  assign MAR_out = MAR_reg;
 
-    end else if (C[5] == 1) begin
-      MAR_reg <= MBR_in;
-    end else if (C[10==1]) begin
-      MAR_reg <= PC_in;
+  always @(*) begin
+    if (!rst) begin
+      MAR_reg  = 0;
+      MAR_temp = 0;
     end else begin
-      MAR_reg <= MAR_reg;
+      MAR_temp = MAR_reg;
+      if (C[5] == 1) begin
+        MAR_reg = MBR_in;
+      end else if (C[10]==1) begin
+        MAR_reg = PC_in;
+      end else begin
+        MAR_reg = MAR_temp;
+      end
     end
   end
   assign MAR_out = MAR_reg;

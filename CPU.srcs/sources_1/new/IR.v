@@ -29,16 +29,33 @@ module IR (
 );
 
   reg [7:0] IR_reg;
+  reg [7:0] IR_temp;
   always @(posedge clk or negedge rst) begin
     if (!rst) begin
-      IR_reg <= 0;
-    end else if (C[4] == 1) begin
-      IR_reg <= MBR_in;
+      IR_reg  <= 0;
+      IR_temp <= 0;
+    end
+    // else begin
+    //   if (C[4] == 1) begin
+    //     IR_reg <= MBR_in;
+    //   end else begin
+    //     IR_reg <= 0;
+    //   end
+    // end
+  end
+  always @(*) begin
+    if (!rst) begin
+      IR_reg  = 0;
+      IR_temp = 0;
     end else begin
-      IR_reg <= 0;
+      IR_temp = IR_reg;
+      if (C[4] == 1) begin
+        IR_reg = MBR_in;
+      end else begin
+        IR_reg = IR_temp;
+      end
     end
   end
-
   assign IR_out = IR_reg;
 
 
