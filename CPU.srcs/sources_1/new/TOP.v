@@ -35,9 +35,9 @@ module TOP (
   wire [15 : 0] BR_out;
   wire [7:0] IR_out;
   wire [7:0] PC_out;
-  //C3=1:read  C12C11=10:write
+  //C3=1:read  C15C14C13C12C11=00010:write
   wire wea;
-  assign wea = (C[3] == 1) ? 0 : {C[12], C[11]} == 2'b10 ? 1 : 0;
+  assign wea = (C[3] == 1) ? 0 : {C[15:11]} == 5'b00010 ? 1 : 0;
 
   wire [15:0] douta;
   MainMemory inst_main_memory (

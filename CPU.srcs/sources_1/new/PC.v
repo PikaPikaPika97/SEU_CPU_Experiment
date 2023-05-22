@@ -49,9 +49,9 @@ module PC (
       PC_temp = 0;
     end else begin
       PC_temp = PC_reg;
-      if (C[6] == 1) begin
+      if (C[6] == 1) begin  //pc+1
         PC_reg = PC_temp + 1;
-      end else if (C[12:11] == 2'b11) begin
+      end else if (C[15:11] == 5'b00011) begin  //pc<=MBR[7:0]
         PC_reg = MBR_in;
       end else begin
         PC_reg = PC_temp;

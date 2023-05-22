@@ -62,7 +62,7 @@ module CU (
           ADD: CAR <= 12;
           SUB: CAR <= 17;
           JMPGEZ: begin
-            if (flags[0] == 1) begin
+            if (flags[2] == 0) begin
               CAR <= 22;
             end else begin
               CAR <= 24;
