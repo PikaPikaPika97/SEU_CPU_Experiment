@@ -25,7 +25,9 @@ module TOP (
     input clk,
     output [15:0] ACC_out,
     output [15:0] MR_out,
-    output [15:0] DR_out
+    output [15:0] DR_out,
+    output [7:0] an,
+    output [6:0] abcdefg
     //暂时无数码管输出
 );
   wire [5:0] flags;
@@ -112,5 +114,22 @@ module TOP (
       .MR     (MR_out),
       .DR     (DR_out)
   );
+
+
+  digital_tube_display u_digital_tube_display (
+      .clk    (clk),
+      .rst    (rst),
+      .digit_7(MR_out[15:12]),
+      .digit_6(MR_out[11:8]),
+      .digit_5(MR_out[7:4]),
+      .digit_4(MR_out[3:0]),
+      .digit_3(ACC_out[15:12]),
+      .digit_2(ACC_out[11:8]),
+      .digit_1(ACC_out[7:4]),
+      .digit_0(ACC_out[3:0]),
+      .an     (an),
+      .abcdefg(abcdefg)
+  );
+
 
 endmodule
