@@ -34,7 +34,7 @@ module MBR (
 );
 
   reg [15:0] MBR_reg;
-  reg [15:0] MBR_temp;
+  // reg [15:0] MBR_temp;
 
   // always @(posedge clk or negedge rst) begin
   //   if (!rst) begin
@@ -50,18 +50,18 @@ module MBR (
   // end
   // end
 
-  always @(*) begin
+  always @(posedge clk or negedge rst) begin
     if (!rst) begin
-      MBR_reg  = 0;
-      MBR_temp = 0;
+      MBR_reg <= 0;
+      //MBR_temp = 0;
     end else begin
-      MBR_temp = MBR_reg;
+      // MBR_temp = MBR_reg;
       if (C[3] == 1) begin
-        MBR_reg = RAM_in;
+        MBR_reg <= RAM_in;
       end else if (C[15:11] == 5'b00001) begin
-        MBR_reg = ACC_in;
+        MBR_reg <= ACC_in;
       end else begin
-        MBR_reg = MBR_temp;
+        MBR_reg <= MBR_reg;
       end
     end
   end

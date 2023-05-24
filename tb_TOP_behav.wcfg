@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="10174675fs"></ZoomStartTime>
-      <ZoomEndTime time="10355876fs"></ZoomEndTime>
-      <Cursor1Time time="10205475fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="216501fs"></ZoomEndTime>
+      <Cursor1Time time="155000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="252"></NameColumnWidth>
+      <NameColumnWidth column_width="246"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="13" />
    <wave_markers>
       <marker time="235000" label="" />
       <marker time="275000" label="" />
@@ -60,19 +60,6 @@
    <wvobject fp_name="/tb_TOP/u_TOP/wea" type="logic">
       <obj_property name="ElementShortName">wea</obj_property>
       <obj_property name="ObjectShortName">wea</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TOP/ACC_out" type="array">
-      <obj_property name="ElementShortName">ACC_out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">ACC_out[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TOP/MR_out" type="array">
-      <obj_property name="ElementShortName">MR_out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">MR_out[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TOP/DR_out" type="array">
-      <obj_property name="ElementShortName">DR_out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">DR_out[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="group54" type="group">
       <obj_property name="label">ALU</obj_property>

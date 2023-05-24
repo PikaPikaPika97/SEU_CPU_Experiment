@@ -57,29 +57,29 @@ module CU (
         CAR <= 0;
       end else if (control_signal[2:0] == 3'b010) begin
         case (opcode)
-          STORE: CAR <= 3;
-          LOAD: CAR <= 7;
-          ADD: CAR <= 12;
-          SUB: CAR <= 17;
+          STORE: CAR <= 4;
+          LOAD: CAR <= 8;
+          ADD: CAR <= 14;
+          SUB: CAR <= 20;
           JMPGEZ: begin
             if (flags[2] == 0) begin
-              CAR <= 22;
+              CAR <= 26;
             end else begin
-              CAR <= 24;
+              CAR <= 28;
             end
           end
-          JMP: CAR <= 26;
-          HALT: CAR <= 28;
-          MPY: CAR <= 30;
-          DIV: CAR <= 35;
-          AND: CAR <= 40;
-          OR: CAR <= 45;
-          NOT: CAR <= 50;
-          SHIFTR: CAR <= 55;
-          SHIFTL: CAR <= 58;
-          default: CAR <= 0;
+          JMP: CAR <= 30;
+          HALT: CAR <= 32;
+          MPY: CAR <= 34;
+          DIV: CAR <= 40;
+          AND: CAR <= 46;
+          OR: CAR <= 52;
+          NOT: CAR <= 58;
+          SHIFTR: CAR <= 64;
+          SHIFTL: CAR <= 67;
+          default: CAR <= CAR;
         endcase
-      end else CAR <= 0;
+      end else CAR <= CAR;
     end
   end
 

@@ -27,7 +27,8 @@ module PC (
     input [15:0] C,
     output [7 : 0] PC_out  //to MAR
 );
-  reg [7:0] PC_reg, PC_temp;
+  reg [7:0] PC_reg;
+  // reg [7:0] PC_temp;
   // always @(posedge clk or negedge rst) begin
   //   if (!rst) begin
   //     PC_reg  <= 0;
@@ -43,18 +44,18 @@ module PC (
   //     end
   //   end
   // end
-  always @(*) begin
+  always @(posedge clk or negedge rst) begin
     if (!rst) begin
-      PC_reg  = 0;
-      PC_temp = 0;
+      PC_reg = 0;
+      //    PC_temp = 0;
     end else begin
-      PC_temp = PC_reg;
+      //  PC_temp = PC_reg;
       if (C[6] == 1) begin  //pc+1
-        PC_reg = PC_temp + 1;
+        PC_reg <= PC_reg + 1;
       end else if (C[15:11] == 5'b00011) begin  //pc<=MBR[7:0]
-        PC_reg = MBR_in;
+        PC_reg <= MBR_in;
       end else begin
-        PC_reg = PC_temp;
+        PC_reg <= PC_reg;
       end
     end
   end
