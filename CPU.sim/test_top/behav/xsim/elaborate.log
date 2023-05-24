@@ -29,6 +29,8 @@ Compiling module unisims_ver.DSP48E1(ACASCREG=0,ALUMODEREG=0,...
 Compiling module xil_defaultlib.mult_gen_0_mult_gen_v12_0_16
 Compiling module xil_defaultlib.mult_gen_0
 Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.digital_tube_display
+Compiling module xil_defaultlib.ila_0
 Compiling module xil_defaultlib.TOP
 Compiling module xil_defaultlib.tb_TOP
 Compiling module xil_defaultlib.glbl

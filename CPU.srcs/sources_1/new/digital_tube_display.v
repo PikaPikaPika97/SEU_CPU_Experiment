@@ -47,8 +47,9 @@ module digital_tube_display (
     if (!rst) begin
       count  <= 0;
       clk_8K <= 0;
-    end else if (count >= 16'd6250) begin
+    end else if (count == 16'd6250) begin
       clk_8K <= ~clk_8K;
+      count  <= count + 1;
     end else if (count == 16'd12500) begin
       count <= 0;
     end else begin

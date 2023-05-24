@@ -23,13 +23,18 @@
 module TOP (
     input rst,
     input clk,
-    output [15:0] ACC_out,
-    output [15:0] MR_out,
-    output [15:0] DR_out,
+    // output [15:0] ACC_out,
+    // output [15:0] MR_out,
+    // output [15:0] DR_out,
     output [7:0] an,
     output [6:0] abcdefg
     //暂时无数码管输出
 );
+
+  wire [15:0] ACC_out;
+  wire [15:0] MR_out;
+  wire [15:0] DR_out;
+
   wire [5:0] flags;
   wire [15:0] C;
   wire [15:0] MBR_out;
@@ -131,5 +136,11 @@ module TOP (
       .abcdefg(abcdefg)
   );
 
+  ila_0 my_ila (
+      .clk(clk),  // input wire clk
+
+
+      .probe0(ACC_out)  // input wire [15:0] probe0
+  );
 
 endmodule

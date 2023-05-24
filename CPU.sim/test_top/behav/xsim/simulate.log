@@ -6,4 +6,4 @@ Block Memory Generator module tb_TOP.u_TOP.inst_main_memory.inst.\native_mem_mod
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
 Block Memory Generator module tb_TOP.u_TOP.u_CU.ins_CM.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
-$finish called at time : 10040 ns : File "C:/code_local/vivado/CPU/CPU.srcs/test_top/new/tb_top.v" Line 37
+$finish called at time : 10040 ns : File "C:/code_local/vivado/CPU/CPU.srcs/test_top/new/tb_top.v" Line 47

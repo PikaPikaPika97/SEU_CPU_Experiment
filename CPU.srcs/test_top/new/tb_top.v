@@ -20,14 +20,24 @@ module tb_TOP;
     forever #(PERIOD / 2) clk = ~clk;
   end
 
-  TOP u_TOP (
-      .rst(rst),
-      .clk(clk),
+  // TOP u_TOP (
+  //     .rst(rst),
+  //     .clk(clk),
 
-      .ACC_out(ACC_out[15:0]),
-      .MR_out (MR_out[15:0]),
-      .DR_out (DR_out[15:0])
+  //     .ACC_out(ACC_out[15:0]),
+  //     .MR_out (MR_out[15:0]),
+  //     .DR_out (DR_out[15:0])
+  // );
+  wire [7:0] an;
+  wire [6:0] abcdefg;
+
+  TOP u_TOP (
+      .rst    (rst),
+      .clk    (clk),
+      .an     (an),
+      .abcdefg(abcdefg)
   );
+
 
   initial begin
     //    #(PERIOD * 2) rst = 1;

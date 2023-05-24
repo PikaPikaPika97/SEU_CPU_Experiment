@@ -24,30 +24,30 @@ module BR (
     input rst,
     input [15:0] C,
     input [15:0] MBR_in,
-    output [15:0] BR_out
+    output reg [15:0] BR_out
 );
 
   reg [15:0] BR_reg;
   reg [15:0] BR_temp;
-  assign BR_out = BR_reg;
-  always @(posedge clk or negedge rst) begin
-    if (!rst) begin
-      BR_reg  <= 0;
-      BR_temp <= 0;
-    end
-    // else begin
-    //   if (C[7] == 1) BR_reg <= MBR_in;
-    //   else BR_reg <= 0;
-    // end
-  end
+  // assign BR_out = BR_reg;
+  // always @(posedge clk or negedge rst) begin
+  //   if (!rst) begin
+  //     BR_reg  <= 0;
+  //     BR_temp <= 0;
+  //   end
+  // else begin
+  //   if (C[7] == 1) BR_reg <= MBR_in;
+  //   else BR_reg <= 0;
+  // end
+  // end
   always @(*) begin
     if (!rst) begin
-      BR_reg  = 0;
+      BR_out  = 0;
       BR_temp = 0;
     end else begin
-      BR_temp = BR_reg;
-      if (C[7] == 1) BR_reg <= MBR_in;
-      else BR_reg <= BR_temp;
+      BR_temp = BR_out;
+      if (C[7] == 1) BR_out = MBR_in;
+      else BR_out = BR_temp;
     end
   end
 endmodule
