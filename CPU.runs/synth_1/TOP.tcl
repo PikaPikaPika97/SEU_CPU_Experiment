@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/code_local/vivado/CPU/CPU.runs/synth_1/TOP.tcl"
+  variable script "C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/TOP.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,8 +70,11 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param tcl.collectionResultDisplayLimit 0
 set_param general.maxThreads 16
-set_param synth.incrementalSynthesisCache C:/Users/k1945/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-8092-LAPTOP-I9VVBRCK/incrSyn
+set_param chipscope.maxJobs 4
+set_param synth.incrementalSynthesisCache C:/Users/k1945/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-28020-LAPTOP-I9VVBRCK/incrSyn
+set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -81,42 +84,44 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/code_local/vivado/CPU/CPU.cache/wt [current_project]
-set_property parent.project_path C:/code_local/vivado/CPU/CPU.xpr [current_project]
+set_property webtalk.parent_dir C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.cache/wt [current_project]
+set_property parent.project_path C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
-set_property ip_output_repo c:/code_local/vivado/CPU/CPU.cache/ip [current_project]
+set_property ip_output_repo c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-add_files C:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ControlMemory/micro_ins.coe
-add_files C:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/MainMemory/instructions.coe
+add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ControlMemory/micro_ins.coe
+add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions.coe
+add_files c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_mpy3.coe
+add_files c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_mpy4.coe
 read_verilog -library xil_defaultlib {
-  C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/ALU.v
-  C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/BR.v
-  C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/CU.v
-  C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/IR.v
-  C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/MAR.v
-  C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/MBR.v
-  C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/PC.v
-  C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/digital_tube_display.v
-  C:/code_local/vivado/CPU/CPU.srcs/sources_1/new/TOP.v
+  C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/ALU.v
+  C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/BR.v
+  C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/CU.v
+  C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/IR.v
+  C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/MAR.v
+  C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/MBR.v
+  C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/PC.v
+  C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/digital_tube_display.v
+  C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/TOP.v
 }
-read_ip -quiet C:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ControlMemory/ControlMemory.xci
-set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ControlMemory/ControlMemory_ooc.xdc]
+read_ip -quiet C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory.xci
+set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory_ooc.xdc]
 
-read_ip -quiet C:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.xci
+read_ip -quiet C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ControlMemory/ControlMemory.xci
+set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ControlMemory/ControlMemory_ooc.xdc]
 
-read_ip -quiet C:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/MainMemory/MainMemory.xci
-set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/MainMemory/MainMemory_ooc.xdc]
+read_ip -quiet C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.xci
 
-read_ip -quiet C:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ila_0/ila_0.xci
-set_property used_in_synthesis false [get_files -all c:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
-set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/ila_0/ila_0_ooc.xdc]
+read_ip -quiet C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_0.xci
+set_property used_in_synthesis false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
+set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -127,9 +132,11 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/code_local/vivado/CPU/CPU.srcs/constrs_1/new/cpu.xdc
-set_property used_in_implementation false [get_files C:/code_local/vivado/CPU/CPU.srcs/constrs_1/new/cpu.xdc]
+read_xdc C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/constrs_1/new/cpu.xdc
+set_property used_in_implementation false [get_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/constrs_1/new/cpu.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

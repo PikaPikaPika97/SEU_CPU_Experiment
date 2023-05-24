@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/code_local/vivado/CPU/CPU.srcs/constrs_1/new/cpu.xdc rfile:../../../CPU.srcs/constrs_1/new/cpu.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/constrs_1/new/cpu.xdc rfile:../../../CPU.srcs/constrs_1/new/cpu.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN E3 [get_ports clk]
 set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]

@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
 // Date        : Wed May 24 09:54:07 2023
 // Host        : LAPTOP-I9VVBRCK running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/code_local/vivado/CPU/CPU.srcs/sources_1/ip/MainMemory/MainMemory_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top MainMemory -prefix
+//               MainMemory_ MainMemory_stub.v
 // Design      : MainMemory
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-1

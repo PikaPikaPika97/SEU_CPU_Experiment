@@ -58,12 +58,12 @@ module ALU (
   // reg  [15:0] ACC_in_reg;
   // reg  [15:0] BR_reg;
 
-  reg [15:0] mult1, mult2;
+  //reg [15:0] mult1, mult2;
   wire [31:0] mult_out;
 
   mult_gen_0 mult (
-      .A(mult1),    // input wire [15 : 0] A
-      .B(mult2),    // input wire [15 : 0] B
+      .A(ACC_in),  // input wire [15 : 0] A
+      .B(BR),  // input wire [15 : 0] B
       .P(mult_out)  // output wire [31 : 0] P
   );
   // always @(*) begin
@@ -77,8 +77,8 @@ module ALU (
       ACC_in    <= 0;
       MR_reg    <= 0;
       DR_reg    <= 0;
-      mult1     <= 0;
-      mult2     <= 0;
+      // mult1     <= 0;
+      // mult2     <= 0;
       // flags_temp = 0;
       // MR_temp    = 0;
       // DR_temp    = 0;
@@ -159,8 +159,8 @@ module ALU (
 
           MPY: begin
             flags_reg         <= 0;
-            mult1             <= ACC_in;
-            mult2             <= BR;
+            // mult1             <= ACC_in;
+            // mult2             <= BR;
             {MR_reg, ACC_reg} <= mult_out;
             flags_reg[3]      <= ~^ACC_reg;
             flags_reg[2]      <= ACC_reg[15];
@@ -173,8 +173,6 @@ module ALU (
             ACC_reg   <= ACC_reg;
             MR_reg    <= MR_reg;
             DR_reg    <= DR_reg;
-            mult1     <= 0;
-            mult2     <= 0;
           end
 
 

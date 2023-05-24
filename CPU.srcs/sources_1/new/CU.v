@@ -71,12 +71,12 @@ module CU (
           JMP: CAR <= 30;
           HALT: CAR <= 32;
           MPY: CAR <= 34;
-          DIV: CAR <= 40;
-          AND: CAR <= 46;
-          OR: CAR <= 52;
-          NOT: CAR <= 58;
-          SHIFTR: CAR <= 64;
-          SHIFTL: CAR <= 67;
+          DIV: CAR <= 41;
+          AND: CAR <= 47;
+          OR: CAR <= 53;
+          NOT: CAR <= 59;
+          SHIFTR: CAR <= 65;
+          SHIFTL: CAR <= 68;
           default: CAR <= CAR;
         endcase
       end else CAR <= CAR;
