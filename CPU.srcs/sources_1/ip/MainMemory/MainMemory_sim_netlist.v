@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Wed May 24 09:54:07 2023
+// Date        : Thu May 25 14:44:58 2023
 // Host        : LAPTOP-I9VVBRCK running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top MainMemory -prefix
-//               MainMemory_ MainMemory_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory_sim_netlist.v
 // Design      : MainMemory
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -198,6 +198,7 @@ module MainMemory
         .web(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module MainMemory_blk_mem_gen_generic_cstr
    (douta,
     clka,
@@ -228,6 +229,7 @@ module MainMemory_blk_mem_gen_generic_cstr
         .wea(wea));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module MainMemory_blk_mem_gen_prim_width
    (douta,
     clka,
@@ -258,6 +260,7 @@ module MainMemory_blk_mem_gen_prim_width
         .wea(wea));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module MainMemory_blk_mem_gen_prim_wrapper_init
    (douta,
     clka,
@@ -311,11 +314,11 @@ module MainMemory_blk_mem_gen_prim_wrapper_init
     .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0002010300010104000301030002010400010103000201020001010400020100),
-    .INIT_01(256'h0000000000000000000000000007000000020104000500040001010300040101),
-    .INIT_02(256'h0000000000000000000000000000000000000000000006040000000100000000),
+    .INIT_00(256'h00010203000D0000000D0000000D0000000D0000000B02020008020100020200),
+    .INIT_01(256'h0000000000000000000000000000000000000000000000000007000000020203),
+    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_04(256'h000000000000000000000000000000000000000001000E01040D05070B0F0D00),
     .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -341,7 +344,7 @@ module MainMemory_blk_mem_gen_prim_wrapper_init
     .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000006040000000100000000),
+    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -425,6 +428,7 @@ module MainMemory_blk_mem_gen_prim_wrapper_init
         .WEBWE({1'b0,1'b0,wea,wea}));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module MainMemory_blk_mem_gen_top
    (douta,
     clka,
@@ -480,7 +484,7 @@ endmodule
 (* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) (* C_WRITE_DEPTH_A = "256" *) 
 (* C_WRITE_DEPTH_B = "256" *) (* C_WRITE_MODE_A = "NO_CHANGE" *) (* C_WRITE_MODE_B = "WRITE_FIRST" *) 
 (* C_WRITE_WIDTH_A = "16" *) (* C_WRITE_WIDTH_B = "16" *) (* C_XDEVICEFAMILY = "artix7" *) 
-(* downgradeipidentifiedwarnings = "yes" *) 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_4" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module MainMemory_blk_mem_gen_v8_4_4
    (clka,
     rsta,
@@ -700,6 +704,7 @@ module MainMemory_blk_mem_gen_v8_4_4
         .wea(wea));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_4_synth" *) 
 module MainMemory_blk_mem_gen_v8_4_4_synth
    (douta,
     clka,

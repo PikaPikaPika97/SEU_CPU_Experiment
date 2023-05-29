@@ -73,10 +73,8 @@ OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param tcl.collectionResultDisplayLimit 0
 set_param general.maxThreads 16
 set_param chipscope.maxJobs 4
-set_param synth.incrementalSynthesisCache C:/Users/k1945/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-28020-LAPTOP-I9VVBRCK/incrSyn
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -96,8 +94,9 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ControlMemory/micro_ins.coe
 add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions.coe
-add_files c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_mpy3.coe
-add_files c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_mpy4.coe
+add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_mpy3.coe
+add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_mpy4.coe
+add_files c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_test.coe
 read_verilog -library xil_defaultlib {
   C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/ALU.v
   C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/BR.v
@@ -109,9 +108,6 @@ read_verilog -library xil_defaultlib {
   C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/digital_tube_display.v
   C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/TOP.v
 }
-read_ip -quiet C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory.xci
-set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory_ooc.xdc]
-
 read_ip -quiet C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ControlMemory/ControlMemory.xci
 set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ControlMemory/ControlMemory_ooc.xdc]
 
@@ -122,6 +118,9 @@ set_property used_in_synthesis false [get_files -all c:/code_local/vivado/CPU/SE
 set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
 set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_0_ooc.xdc]
+
+read_ip -quiet C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory.xci
+set_property used_in_implementation false [get_files -all c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -135,8 +134,6 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/constrs_1/new/cpu.xdc
 set_property used_in_implementation false [get_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/constrs_1/new/cpu.xdc]
 
-read_xdc dont_touch.xdc
-set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

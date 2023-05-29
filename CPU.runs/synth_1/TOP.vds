@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Wed May 24 21:29:47 2023
-# Process ID: 1096
+# Start of session at: Thu May 25 14:52:29 2023
+# Process ID: 17064
 # Current directory: C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1
 # Command line: vivado.exe -log TOP.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP.tcl
 # Log file: C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/TOP.vds
@@ -18,13 +18,13 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 25752
+INFO: [Synth 8-7075] Helper process launched with PID 4288
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1017.789 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1017.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'TOP' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/TOP.v:23]
-INFO: [Synth 8-6157] synthesizing module 'MainMemory' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-1096-LAPTOP-I9VVBRCK/realtime/MainMemory_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'MainMemory' (1#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-1096-LAPTOP-I9VVBRCK/realtime/MainMemory_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'MainMemory' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-17064-LAPTOP-I9VVBRCK/realtime/MainMemory_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MainMemory' (1#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-17064-LAPTOP-I9VVBRCK/realtime/MainMemory_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'BR' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/BR.v:22]
 INFO: [Synth 8-6155] done synthesizing module 'BR' (2#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/BR.v:22]
 INFO: [Synth 8-6157] synthesizing module 'IR' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/IR.v:23]
@@ -50,8 +50,8 @@ INFO: [Synth 8-6157] synthesizing module 'CU' [C:/code_local/vivado/CPU/SEU_CPU_
 	Parameter NOT bound to: 8'b00001100 
 	Parameter SHIFTR bound to: 8'b00001101 
 	Parameter SHIFTL bound to: 8'b00001110 
-INFO: [Synth 8-6157] synthesizing module 'ControlMemory' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-1096-LAPTOP-I9VVBRCK/realtime/ControlMemory_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ControlMemory' (7#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-1096-LAPTOP-I9VVBRCK/realtime/ControlMemory_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ControlMemory' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-17064-LAPTOP-I9VVBRCK/realtime/ControlMemory_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ControlMemory' (7#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-17064-LAPTOP-I9VVBRCK/realtime/ControlMemory_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'CU' (8#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/CU.v:3]
 INFO: [Synth 8-6157] synthesizing module 'ALU' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/ALU.v:23]
 	Parameter ADD bound to: 6'b000001 
@@ -63,79 +63,77 @@ INFO: [Synth 8-6157] synthesizing module 'ALU' [C:/code_local/vivado/CPU/SEU_CPU
 	Parameter NOT bound to: 6'b010010 
 	Parameter SHIFTR bound to: 6'b010100 
 	Parameter SHIFTL bound to: 6'b010110 
-INFO: [Synth 8-6157] synthesizing module 'mult_gen_0' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-1096-LAPTOP-I9VVBRCK/realtime/mult_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'mult_gen_0' (9#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-1096-LAPTOP-I9VVBRCK/realtime/mult_gen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'mult_gen_0' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-17064-LAPTOP-I9VVBRCK/realtime/mult_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'mult_gen_0' (9#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-17064-LAPTOP-I9VVBRCK/realtime/mult_gen_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'ALU' (10#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/ALU.v:23]
 INFO: [Synth 8-6157] synthesizing module 'digital_tube_display' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/digital_tube_display.v:25]
 INFO: [Synth 8-155] case statement is not full and has no default [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/digital_tube_display.v:67]
 INFO: [Synth 8-6155] done synthesizing module 'digital_tube_display' (11#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/digital_tube_display.v:25]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/TOP.v:139]
-INFO: [Synth 8-6157] synthesizing module 'ila_0' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-1096-LAPTOP-I9VVBRCK/realtime/ila_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ila_0' (12#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-1096-LAPTOP-I9VVBRCK/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-17064-LAPTOP-I9VVBRCK/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (12#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/.Xil/Vivado-17064-LAPTOP-I9VVBRCK/realtime/ila_0_stub.v:6]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_ALU'. This will prevent further optimization [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/TOP.v:111]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'my_ila'. This will prevent further optimization [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/TOP.v:139]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_digital_tube_display'. This will prevent further optimization [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/TOP.v:124]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_MBR'. This will prevent further optimization [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/TOP.v:93]
 INFO: [Synth 8-6155] done synthesizing module 'TOP' (13#1) [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/TOP.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1017.789 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1017.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1017.789 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1017.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1017.789 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1017.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1017.789 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1017.699 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory/MainMemory_in_context.xdc] for cell 'inst_main_memory'
-Finished Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory/MainMemory_in_context.xdc] for cell 'inst_main_memory'
 Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ControlMemory/ControlMemory/ControlMemory_in_context.xdc] for cell 'u_CU/ins_CM'
 Finished Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ControlMemory/ControlMemory/ControlMemory_in_context.xdc] for cell 'u_CU/ins_CM'
 Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/mult_gen_0/mult_gen_0/mult_gen_0_in_context.xdc] for cell 'u_ALU/mult'
 Finished Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/mult_gen_0/mult_gen_0/mult_gen_0_in_context.xdc] for cell 'u_ALU/mult'
 Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'my_ila'
 Finished Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'my_ila'
+Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory/MainMemory_in_context.xdc] for cell 'inst_main_memory'
+Finished Parsing XDC File [c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/MainMemory/MainMemory_in_context.xdc] for cell 'inst_main_memory'
 Parsing XDC File [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/constrs_1/new/cpu.xdc]
 Finished Parsing XDC File [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/constrs_1/new/cpu.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/constrs_1/new/cpu.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1019.891 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1018.676 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1019.891 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1018.676 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'inst_main_memory' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'u_CU/ins_CM' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1026.785 ; gain = 8.996
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1027.531 ; gain = 9.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1026.785 ; gain = 8.996
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1027.531 ; gain = 9.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for inst_main_memory. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for u_CU/ins_CM. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for u_ALU/mult. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for my_ila. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for inst_main_memory. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1026.785 ; gain = 8.996
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1027.531 ; gain = 9.832
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'scan_r_reg' in module 'digital_tube_display'
 ---------------------------------------------------------------------------------------------------
@@ -152,7 +150,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'scan_r_reg' in module 'digi
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'scan_r_reg' using encoding 'sequential' in module 'digital_tube_display'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1026.785 ; gain = 8.996
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1027.531 ; gain = 9.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -203,25 +201,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 1026.785 ; gain = 8.996
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1027.531 ; gain = 9.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1026.785 ; gain = 8.996
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 1027.531 ; gain = 9.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1026.785 ; gain = 8.996
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1027.531 ; gain = 9.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1026.785 ; gain = 8.996
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1027.531 ; gain = 9.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -239,37 +237,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1031.375 ; gain = 13.586
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1032.715 ; gain = 15.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1031.375 ; gain = 13.586
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1032.715 ; gain = 15.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1031.375 ; gain = 13.586
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1032.715 ; gain = 15.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1031.375 ; gain = 13.586
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1032.715 ; gain = 15.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1031.375 ; gain = 13.586
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1032.715 ; gain = 15.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1031.375 ; gain = 13.586
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1032.715 ; gain = 15.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -307,27 +305,27 @@ Report Cell Usage:
 |16    |OBUF          |    15|
 +------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1031.375 ; gain = 13.586
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1032.715 ; gain = 15.016
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:18 . Memory (MB): peak = 1031.375 ; gain = 4.590
-Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:21 . Memory (MB): peak = 1031.375 ; gain = 13.586
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1032.715 ; gain = 5.184
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1032.715 ; gain = 15.016
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1043.445 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1044.777 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1043.957 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1045.352 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 48 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:26 . Memory (MB): peak = 1043.957 ; gain = 26.168
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 1045.352 ; gain = 27.652
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit, general.maxThreads
 INFO: [Common 17-1381] The checkpoint 'C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.runs/synth_1/TOP.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed May 24 21:30:20 2023...
+INFO: [Common 17-206] Exiting Vivado at Thu May 25 14:53:00 2023...
