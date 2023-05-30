@@ -70,11 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
 set_param general.maxThreads 16
-set_param chipscope.maxJobs 4
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -96,7 +92,8 @@ add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/Cont
 add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions.coe
 add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_mpy3.coe
 add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_mpy4.coe
-add_files c:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_test.coe
+add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_test.coe
+add_files C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/ip/MainMemory/instructions_test1.coe
 read_verilog -library xil_defaultlib {
   C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/ALU.v
   C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/sources_1/new/BR.v

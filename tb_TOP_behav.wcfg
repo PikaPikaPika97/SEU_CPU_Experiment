@@ -11,18 +11,16 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="216501fs"></ZoomEndTime>
-      <Cursor1Time time="155000fs"></Cursor1Time>
+      <ZoomStartTime time="109606442fs"></ZoomStartTime>
+      <ZoomEndTime time="109790043fs"></ZoomEndTime>
+      <Cursor1Time time="110040000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="246"></NameColumnWidth>
+      <NameColumnWidth column_width="240"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="13" />
    <wave_markers>
-      <marker time="235000" label="" />
-      <marker time="275000" label="" />
       <marker time="345000" label="" />
       <marker time="425000" label="" />
       <marker time="505000" label="" />
@@ -48,6 +46,17 @@
       <marker time="51805000" label="" />
       <marker time="51855000" label="" />
       <marker time="51935000" label="" />
+      <marker time="145100" label="" />
+      <marker time="225100" label="" />
+      <marker time="74395000" label="" />
+      <marker time="74305100" label="" />
+      <marker time="74405100" label="" />
+      <marker time="74485100" label="" />
+      <marker time="74585000" label="" />
+      <marker time="74685000" label="" />
+      <marker time="74765100" label="" />
+      <marker time="74865100" label="" />
+      <marker time="74965100" label="" />
    </wave_markers>
    <wvobject fp_name="/tb_TOP/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
@@ -65,13 +74,19 @@
       <obj_property name="label">ALU</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_TOP/u_TOP/u_ALU/MR" type="array">
+         <obj_property name="ElementShortName">MR[15:0]</obj_property>
+         <obj_property name="ObjectShortName">MR[15:0]</obj_property>
+      </wvobject>
       <wvobject fp_name="/tb_TOP/u_TOP/u_ALU/ACC_out" type="array">
          <obj_property name="ElementShortName">ACC_out[15:0]</obj_property>
          <obj_property name="ObjectShortName">ACC_out[15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_TOP/u_TOP/u_ALU/ACC_in" type="array">
          <obj_property name="ElementShortName">ACC_in[15:0]</obj_property>
          <obj_property name="ObjectShortName">ACC_in[15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_TOP/u_TOP/u_ALU/BR" type="array">
          <obj_property name="ElementShortName">BR[15:0]</obj_property>
@@ -89,6 +104,7 @@
       <wvobject fp_name="/tb_TOP/u_TOP/inst_main_memory/douta" type="array">
          <obj_property name="ElementShortName">douta[15:0]</obj_property>
          <obj_property name="ObjectShortName">douta[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_TOP/u_TOP/inst_main_memory/dina" type="array">
          <obj_property name="ElementShortName">dina[15:0]</obj_property>
