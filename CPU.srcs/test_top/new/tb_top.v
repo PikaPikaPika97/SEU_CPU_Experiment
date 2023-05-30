@@ -11,9 +11,9 @@ module tb_TOP;
   reg         clk = 0;
 
   // TOP Outputs
-  wire [15:0] ACC_out;
-  wire [15:0] MR_out;
-  wire [15:0] DR_out;
+  // wire [15:0] ACC_out;
+  // wire [15:0] MR_out;
+  // wire [15:0] DR_out;
 
 
   initial begin
