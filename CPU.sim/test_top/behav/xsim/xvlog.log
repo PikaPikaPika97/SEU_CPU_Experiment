@@ -30,6 +30,3 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/code_local/vivado/CPU/SEU_CPU_Ex
 INFO: [VRFC 10-311] analyzing module digital_tube_display
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.srcs/test_top/new/tb_top.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module tb_TOP
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.sim/test_top/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'glbl' [C:/code_local/vivado/CPU/SEU_CPU_Experiment/CPU.sim/test_top/behav/xsim/glbl.v:6]

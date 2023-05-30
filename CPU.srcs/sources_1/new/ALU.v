@@ -99,8 +99,8 @@ module ALU (
           C[15:11], C[9]
         })
           ADD: begin
-            flags_reg = 0;
-            {flags_reg[5], ACC_reg} = ACC_in + BR;
+            flags_reg <= 0;
+            {flags_reg[5], ACC_reg} <= ACC_in + BR;
             flags_reg[4] <= (ACC_in[15] == BR[15]) && (ACC_in[15] != ACC_reg[15]) ? 1 : 0;
             flags_reg[3] <= ~^ACC_reg;
             flags_reg[2] <= ACC_reg[15];
@@ -108,8 +108,8 @@ module ALU (
             flags_reg[0] <= (ACC_reg >= 0) ? 1 : 0;
           end
           SUB: begin
-            flags_reg = 0;
-            {flags_reg[5], ACC_reg} = ACC_in - BR;
+            flags_reg <= 0;
+            {flags_reg[5], ACC_reg} <= ACC_in - BR;
             flags_reg[4]            <= (ACC_in[15] == 0 && BR[15] == 1 && ACC_reg[15] == 1) || (ACC_in[15] == 1 && BR[15] == 0 && ACC_reg[15] == 0) ? 1 : 0;
             flags_reg[3] <= ~^ACC_reg;
             flags_reg[2] <= ACC_reg[15];
@@ -117,41 +117,41 @@ module ALU (
             flags_reg[0] <= (ACC_reg >= 0) ? 1 : 0;
           end
           AND: begin
-            flags_reg = 0;
-            ACC_reg   = ACC_in & BR;
+            flags_reg <= 0;
+            ACC_reg <= ACC_in & BR;
             flags_reg[3] <= ~^ACC_reg;
             flags_reg[2] <= ACC_reg[15];
             //flags_reg[1]=0;
             flags_reg[0] <= (ACC_reg >= 0) ? 1 : 0;
           end
           OR: begin
-            flags_reg = 0;
-            ACC_reg   = ACC_in | BR;
+            flags_reg  <=  0;
+            ACC_reg    <=  ACC_in | BR;
             flags_reg[3] <= ~^ACC_reg;
             flags_reg[2] <= ACC_reg[15];
             //flags_reg[1]=0;
             flags_reg[0] <= (ACC_reg >= 0) ? 1 : 0;
           end
           NOT: begin
-            flags_reg = 0;
-            ACC_reg   = ~ACC_in;
+            flags_reg  <=  0;
+            ACC_reg    <=  ~ACC_in;
             flags_reg[3] <= ~^ACC_reg;
             flags_reg[2] <= ACC_reg[15];
             //flags_reg[1]=0;
             flags_reg[0] <= (ACC_reg >= 0) ? 1 : 0;
           end
           SHIFTL: begin
-            flags_reg               = 0;
-            {flags_reg[5], ACC_reg} = ACC_in << 1;
-            flags_reg[3] <= ~^ACC_reg;
-            flags_reg[2] <= ACC_reg[15];
+            flags_reg               <= 0;
+            {flags_reg[5], ACC_reg} <= ACC_in << 1;
+            flags_reg[3]            <= ~^ACC_reg;
+            flags_reg[2]            <= ACC_reg[15];
             //flags_reg[1]=0;
-            flags_reg[0] <= (ACC_reg >= 0) ? 1 : 0;
+            flags_reg[0]            <= (ACC_reg >= 0) ? 1 : 0;
 
           end
           SHIFTR: begin
-            flags_reg = 0;
-            ACC_reg   = ACC_in >> 1;
+            flags_reg  <=  0;
+            ACC_reg    <=  ACC_in >> 1;
             flags_reg[3] <= ~^ACC_reg;
             flags_reg[2] <= ACC_reg[15];
             //flags_reg[1]=0;
@@ -159,14 +159,14 @@ module ALU (
           end
 
           MPY: begin
-            flags_reg         = 0;
+            flags_reg         <= 0;
             // mult1             <= ACC_in;
             // mult2             <= BR;
-            {MR_reg, ACC_reg} = mult_out;
-            flags_reg[3] <= ~^ACC_reg;
-            flags_reg[2] <= ACC_reg[15];
+            {MR_reg, ACC_reg} <= mult_out;
+            flags_reg[3]      <= ~^ACC_reg;
+            flags_reg[2]      <= ACC_reg[15];
             //flags[1]=0;
-            flags_reg[0] <= (ACC_reg >= 0) ? 1 : 0;
+            flags_reg[0]      <= (ACC_reg >= 0) ? 1 : 0;
 
           end
           default: begin
@@ -181,7 +181,9 @@ module ALU (
       end
     end
   end
-  assign flags = flags_reg;
+  assign flags[5:3] = flags_reg[5:3];
+  assign flags[1:0] = flags_reg[1:0];
+  assign flags[2] = ACC_reg[15];
   assign ACC_out = ACC_reg;
   assign MR = MR_reg;
   assign DR = DR_reg;
